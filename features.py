@@ -90,5 +90,14 @@ def alarm() :
     Time.close() 
     os.startfile("C:\\Users\\angaj\\OneDrive\\Desktop\\jarvis2\\database\\extraprogramm\\Alarm.py")  
 
-alarm() 
-    
+def google_search(search) :
+    if search == None :
+        speak("sir , you did not mention anything to search ,so i am stopped searching ") 
+    else :    
+        search = search.replace("search for","")
+        search = search.replace("jarvis","")
+        speak(f"searching for {search} in google") 
+        webbrowser.open(search)
+        speak("sir , this is what i found in the google") 
+
+        
