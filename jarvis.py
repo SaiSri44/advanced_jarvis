@@ -104,9 +104,52 @@ def desire():
 
         elif "screenshot" in query:
             from features import taking_screen_shot
-            taking_screen_shot()
+            taking_screen_shot() 
 
-# while True:
+        elif "send whatsapp message" in query or "message" in query :
+            from automation import whatsappmsg
+            speak("sir ,whom do you want to send the message ")
+            name = take_command()
+            while name == None :
+                speak("sir, i could n't recognize please tell again") 
+                name = take_command() 
+            speak("sir, tell me what's the message ")
+            message = take_command()
+            speak(f"sending whatsapp message to {name} ") 
+            whatsappmsg(name,message) 
+
+        elif "voice call" in query or "whatsapp call" in query  :
+            from automation import whatsappcall
+            speak("sir , whom do you wanna call")    
+            name = take_command()
+            while name == None :
+                speak("sir, i did not recognize it please tell agian")
+                name = take_command()
+            speak(f"calling the {name}") 
+            whatsappcall(name) 
+
+        elif "video call"  in query or "whatsapp video call" in query : 
+            from automation import whatsappvideocall
+            speak("sir ,  whom do you wanna make a video call")     
+            name = take_command()
+            while name ==  None :
+                speak("sir, i did not recognize it , please tell again")
+                name = take_command()
+            speak(f"making the videocall to {name}")    
+            whatsappvideocall(name) 
+        
+        elif "whatsapp chat" in query or "chat" in query :
+            from automation import whatsappchat
+            speak("sir , whose chat do you wish to open")
+            name = take_command()
+            while name == None :
+                speak("sir , i did not recognize it , please tell again")
+                name = take_command()
+            speak(f"opening the whatsapp chat of {name}")    
+            whatsappchat(name) 
+
+# while True: ou doing 
+
 #     query = take_command()
 #     if "poor connection" == query:
 #         speak(
