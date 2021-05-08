@@ -194,7 +194,12 @@ def desire():
             speak("closing whatsapp") 
             os.system("TASKKILL /f /im WhatsApp.exe")    
 
+        elif "open youtube" in query :
+           webbrowser.open("https://www.youtube.com/")
 
+        elif "new tab" in query or "history" in query or "downloads" in query or "close tab" in query or "new window" in query or "bookmark" in query or "switch tab" in query or "incognito" in query : 
+            from automation import chromeautomation
+            chromeautomation(query)   
 
 
 # while True: ou doing 
