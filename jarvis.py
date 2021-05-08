@@ -1,4 +1,5 @@
-
+import webbrowser
+import os
 from features import wish
 import pyttsx3
 import speech_recognition as sr
@@ -147,6 +148,54 @@ def desire():
                 name = take_command()
             speak(f"opening the whatsapp chat of {name}")    
             whatsappchat(name) 
+         
+        elif "open instagram" in query or "instagram" in query :
+            speak("opening instagram") 
+            webbrowser.open("https://www.instagram.com/")
+
+        elif "open facebook" in query or "facebook"  in query :
+            speak("opening facebook")     
+            webbrowser.open("https://www.facebook.com/")
+
+        elif "open linkedin" in query or "linkedin" in query :
+            speak("opening linkedin")    
+            webbrowser.open("https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin") 
+
+        elif "open github" in query or "github" in query :
+            speak("opening the github")    
+            webbrowser.open("https://github.com/") 
+       
+        elif "open notepad" in query  :
+            speak("opening notepad")
+            path = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Accessories\\Notepad"
+            os.startfile(path) 
+
+        elif "open command prompt" in query :
+            speak("opening command prompt")    
+            os.system("start cmd")
+       
+        elif "close notepad" in query or "stop notepad" in query or "exit notepad" in query :
+            speak("closing notepad") 
+            os.system("TASKKILL /f /im notepad.exe") 
+
+        elif "close command prompt" in query or "stop command prompt" in query or "exit command prompt" in query :
+             speak("closing command prompt")
+             os.system("TASKKILL /f /im cmd.exe")
+
+        elif "close google" in query or "close chrome" in query :
+             os.system("TASKKILL /f /im chrome.exe")    
+
+        elif "open whatsapp" in query :
+            speak("opening whatsapp")
+            path = "C:\\Users\\angaj\\AppData\\Local\\WhatsApp\\WhatsApp.exe"
+            os.startfile(path)     
+
+        elif "close whatsapp"  in query or "stop whatsapp" in query or "exit whatsapp" in query :
+            speak("closing whatsapp") 
+            os.system("TASKKILL /f /im WhatsApp.exe")    
+
+
+
 
 # while True: ou doing 
 
@@ -173,4 +222,4 @@ def desire():
 
 
 wish()
-desire()
+desire() 
