@@ -8,6 +8,7 @@ from time import sleep
 import math
 from features import speak
 
+
 def whatsappmsg(name, message):
     startfile("E:\\WhatsAppSetup.exe")
     sleep(25)
@@ -69,32 +70,73 @@ def chromeautomation(command):
         speak("closing the tab")
         press_and_release("ctrl + w")
 
-    elif "new window" in command :
+    elif "new window" in command:
         speak("opening the new window")
         press_and_release("ctrl + n")
 
-    elif "history" in command :
+    elif "history" in command:
         speak("opening the history")
-        press_and_release("ctrl + h") 
+        press_and_release("ctrl + h")
 
-    elif "downloads" in command :
+    elif "downloads" in command:
         speak("opening the downloads")
-        press_and_release("ctrl + j") 
+        press_and_release("ctrl + j")
 
-    elif "bookmark" in command :
+    elif "bookmark" in command:
         speak("opening the bookmarks")
         press_and_release("ctrl + d")
 
-    elif "incognito" in command :
+    elif "incognito" in command:
         speak("opening incognito")
         press_and_release("ctrl + shift + n")
 
-    elif "switch tab" in command :
-        speak("switching to new tab") 
+    elif "switch tab" in command:
+        speak("switching to new tab")
         command = command.replace("switch tab to", "")
         tab = int(command)
-        press_and_release(f"ctrl + {tab}") 
-    else :
+        press_and_release(f"ctrl + {tab}")
+    else:
         pass
 
+
+def onbatterysavemode():
+    speak("switching to battery saving mode")
+    pyautogui.click(x=1881, y=1055)
+    sleep(1)
+    pyautogui.click(x=1631, y=616)
+    sleep(1)
+    pyautogui.click(x=1881, y=1055)
+
+
+def onbluetooth():
+    speak("switching on the bluetooth")
+    pyautogui.click(x=1881, y=1055)
+    sleep(1)
+    pyautogui.click(x=1708, y=625)
+    sleep(1)
+    pyautogui.click(x=1881, y=1055)
+
+
+def nightmode():
+    speak("switching to night mode")
+    pyautogui.click(x=1881, y=1055)
+    sleep(1)
+    pyautogui.click(x=1820, y=600)
+    sleep(1)
+    pyautogui.click(x=1881, y=1055)
+
+
+def systemapps(command) :
+    command = command.replace("jarvis", "")
+    command = command.replace("open", "") 
+    command = command.replace("service", "") 
+    speak(f"opening {command}")
+    sleep(1)
+    pyautogui.click(x=298, y=1064) 
+    pyautogui.typewrite(command, interval=0.3)
+    sleep(2) 
+    pyautogui.click(x=417, y=387)
+
+
+    
 

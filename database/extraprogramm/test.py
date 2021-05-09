@@ -1,6 +1,6 @@
 import pyautogui
 from time import sleep
 
-sleep(5)
+sleep(10)
 kk = pyautogui.position()
 print(kk) 

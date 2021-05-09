@@ -152,7 +152,7 @@ def taking_screen_shot():
         speak(
             "ok sir i am done with taking screenshot, it is saved in our current folder, i am ready for another command sir")
     
-   
+ 
 # print(wolfram("days until may 24 2021"))  
   
 # print(calculate("2 into 3 plus 4 power 2"))         

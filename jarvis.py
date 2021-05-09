@@ -201,10 +201,24 @@ def desire():
             from automation import chromeautomation
             chromeautomation(query)   
 
+        elif "bluetooth" in query :
+            from automation import onbluetooth
+            onbluetooth()
 
+        elif "night mode" in query or "night" in query :
+            from automation import nightmode
+            nightmode()
+
+        elif "battery saver" in query or "saver" in query :
+            from automation import onbatterysavemode
+            onbatterysavemode()         
+
+        elif "open" in query :
+            from automation import systemapps
+            systemapps(query)  
 # while True: ou doing 
 
-#     query = take_command()
+#     query = take_command() 
 #     if "poor connection" == query:
 #         speak(
 #             "Sir,due to poor internet connection , i am not able to follow your commands, please connect to internet sir")
