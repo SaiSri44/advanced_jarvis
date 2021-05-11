@@ -6,7 +6,19 @@ from time import sleep
 from keyboard import press_and_release
 from time import sleep
 import math
-from features import speak
+import pyttsx3 
+
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+engine.setProperty('voice',voices[8].id) 
+engine.setProperty('rate',180) 
+
+def speak(audio) :
+        print("  ")
+        print(f" {audio} ")
+        print("  ")
+        engine.say(audio)
+        engine.runAndWait() 
 
 
 def whatsappmsg(name, message):
@@ -174,7 +186,7 @@ def quickscan():
     pyautogui.typewrite("quick scan", interval=0.0)
     sleep(1)
     pyautogui.click(x=417, y=387) 
-    from features import speak
+    
     speak('sir , running a quick scan') 
     sleep(2) 
     pyautogui.click(x=694, y=481) 
@@ -184,21 +196,22 @@ def windowsupdate() :
     pyautogui.typewrite("windows update", interval=0.0)
     sleep(1)
     pyautogui.click(x=417, y=387) 
-    from features import speak
+    
     speak('sir , searching for updates') 
     sleep(2) 
     pyautogui.click(x=813, y=278) 
 
 def commit() :
     pyautogui.click(x=42, y=285)
-    sleep(1)
-    pyautogui.click(x=186, y=148)  
+    sleep(1)   
     speak("sir please write the message for commmit")
-    message = input()  
-    pyautogui.typewrite(message) 
+    message = input()   
     speak("commiting the changes to the master repository") 
+    pyautogui.click(x=186, y=148) 
+    pyautogui.typewrite(message,interval=0.3)  
     pyautogui.click(x=227, y=85) 
-    speak("publishing changes to repository")
+    sleep(5) 
+    speak("publishing changes to repository") 
     pyautogui.click(x=165, y=1011)
     sleep(1)
     pyautogui.click(x=42, y=285) 
