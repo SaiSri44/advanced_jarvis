@@ -208,7 +208,7 @@ def commit() :
     message = input()   
     speak("commiting the changes to the master repository") 
     pyautogui.click(x=186, y=148) 
-    pyautogui.typewrite(message,interval=0.3)  
+    pyautogui.typewrite(message,interval=0.1)  
     pyautogui.click(x=227, y=85) 
     sleep(5) 
     speak("publishing changes to repository") 

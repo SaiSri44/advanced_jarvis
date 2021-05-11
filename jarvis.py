@@ -229,7 +229,11 @@ def desire():
         elif "windows update" in query or "updates" in query :
            from automation import windowsupdate
            windowsupdate()  
-#      
+      
+        elif "commit" in query or "changes" in query or "changes" in query :
+            from automation import commit 
+            commit() 
+            
 # while True: 
 #     query = take_command() 
 #     if "poor connection" == query:
