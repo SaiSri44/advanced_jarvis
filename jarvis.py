@@ -233,7 +233,10 @@ def desire():
         elif "commit" in query or "changes" in query or "changes" in query :
             from automation import commit 
             commit() 
-            
+        
+        elif "new file" in query :
+            from automation import opennewfile
+            opennewfile()     
 # while True: 
 #     query = take_command() 
 #     if "poor connection" == query:

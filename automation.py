@@ -208,7 +208,7 @@ def commit() :
     message = input()   
     speak("commiting the changes to the master repository") 
     pyautogui.click(x=186, y=148) 
-    pyautogui.typewrite(message,interval=0.1)  
+    pyautogui.typewrite(message,interval=0.0)   
     pyautogui.click(x=227, y=85) 
     sleep(5) 
     speak("publishing changes to repository") 
@@ -217,5 +217,9 @@ def commit() :
     pyautogui.click(x=42, y=285) 
     speak("sir you can proceed") 
 
-commit() 
+def opennewfile() :
+    speak("opening the new file") 
+    press_and_release("ctrl + n") 
+
+
 
