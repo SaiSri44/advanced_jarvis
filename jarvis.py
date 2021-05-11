@@ -2,7 +2,7 @@ import webbrowser
 import os
 from features import wish
 import pyttsx3
-import speech_recognition as sr
+import speech_recognition as sr 
 import sys
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -237,8 +237,18 @@ def desire():
         elif "new file" in query :
             from automation import opennewfile
             opennewfile()     
+     
+        elif "restart" in query:
+                speak("Hang on Sir, restarting the Pc")
+                os.system("shutdown /r /t 5") 
+
+        elif "shutdown" in query:
+                speak("Got it Sir, shutdowning the Pc,")
+                speak("Thank you Sir,Have a nice day")
+                os.system("shutdown /s /t 5")   
+
 # while True: 
-#     query = take_command() 
+#     query = take_command()  
 #     if "poor connection" == query:
 #         speak(
 #             "Sir,due to poor internet connection , i am not able to follow your commands, please connect to internet sir")
