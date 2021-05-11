@@ -209,7 +209,7 @@ def commit() :
     sleep(1)   
     pyautogui.click(x=186, y=148) 
     pyautogui.typewrite(message,interval=0.0)   
-    pyautogui.click(x=227, y=85) 
+    pyautogui.click(x=257, y=86)  
     sleep(5) 
     speak("publishing changes to repository") 
     pyautogui.click(x=165, y=1011)
