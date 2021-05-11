@@ -14,13 +14,13 @@ def whatsappmsg(name, message):
     sleep(25)
     pyautogui.click(x=367, y=146)
     sleep(1)
-    pyautogui.typewrite(name, interval=0.3)
+    pyautogui.typewrite(name, interval=0.0)
     sleep(1)
     pyautogui.click(x=379, y=307)
     sleep(1)
     pyautogui.click(x=842, y=987)
     sleep(1)
-    pyautogui.typewrite(message, interval=0.3)
+    pyautogui.typewrite(message, interval=0.0)
     press('enter')
 
 
@@ -29,7 +29,7 @@ def whatsappcall(name):
     sleep(30)
     pyautogui.click(x=367, y=146)
     sleep(1)
-    pyautogui.typewrite(name, interval=0.3)
+    pyautogui.typewrite(name, interval=0.0)
     sleep(1)
     pyautogui.click(x=379, y=307)
     sleep(1)
@@ -41,7 +41,7 @@ def whatsappchat(name):
     sleep(30)
     pyautogui.click(x=367, y=146)
     sleep(1)
-    pyautogui.typewrite(name, interval=0.3)
+    pyautogui.typewrite(name, interval=0.0)
     sleep(1)
     pyautogui.click(x=379, y=307)
     sleep(1)
@@ -54,7 +54,7 @@ def whatsappvideocall(name):
     sleep(30)
     pyautogui.click(x=367, y=146)
     sleep(1)
-    pyautogui.typewrite(name, interval=0.3)
+    pyautogui.typewrite(name, interval=0.0)
     sleep(1)
     pyautogui.click(x=379, y=307)
     sleep(1)
@@ -90,11 +90,12 @@ def chromeautomation(command):
         speak("opening incognito")
         press_and_release("ctrl + shift + n")
 
-    elif "switch tab" in command:
-        speak("switching to new tab")
-        command = command.replace("switch tab to", "")
+    elif "switch to tab" in command:
+        command = command.replace("switch to tab", "")
         tab = int(command)
-        press_and_release(f"ctrl + {tab}")
+        speak(f"switching to tab {tab}") 
+        press_and_release(f"ctrl + {tab}") 
+        
     else:
         pass
 
@@ -126,17 +127,82 @@ def nightmode():
     pyautogui.click(x=1881, y=1055)
 
 
-def systemapps(command) :
+def systemapps(command):
     command = command.replace("jarvis", "")
-    command = command.replace("open", "") 
-    command = command.replace("service", "") 
+    command = command.replace("open", "")
+    command = command.replace("service", "")
     speak(f"opening {command}")
     sleep(1)
-    pyautogui.click(x=298, y=1064) 
-    pyautogui.typewrite(command, interval=0.3)
-    sleep(2) 
+    pyautogui.click(x=298, y=1064)
+    pyautogui.typewrite(command, interval=0.0)
+    sleep(2)
     pyautogui.click(x=417, y=387)
 
 
-    
+def youtubeautomate(command):
+    command = command.replace("jarvis", "")
+    command = command.replace("youtube", "")
+    command = command.replace("video", "")
+    if "pause" in command or "stop" in command:
+        press("k")
+    elif "resume" in command or "play" in command:
+        press("k")
+    elif "full screen" in command or "full screen mode" in command:
+        press("f")
+    elif "film screen" in command:
+        press("t")
+    elif "skip" in command:
+        press("l")
+    elif "back" in command:
+        press("j")
+    elif "increase play rate" in command or "speed up" in command or "increase" in command:
+        press_and_release("shift + >")
+    elif "decrease play rate" in command or "speed down" in command or "decrease" in command:
+        press_and_release("shift + <")
+    elif "previous video" in command or "previous" in command:
+        press_and_release("shift + p")
+    elif "next video" in command or "next" in command:
+        press_and_release("shift + n")
+    elif "mute" in command or "mute volume" in command:
+        press("m")
+    else:
+        pass
+
+
+def quickscan():
+    pyautogui.click(x=298, y=1064)
+    pyautogui.typewrite("quick scan", interval=0.0)
+    sleep(1)
+    pyautogui.click(x=417, y=387) 
+    from features import speak
+    speak('sir , running a quick scan') 
+    sleep(2) 
+    pyautogui.click(x=694, y=481) 
+
+def windowsupdate() :
+    pyautogui.click(x=298, y=1064)
+    pyautogui.typewrite("windows update", interval=0.0)
+    sleep(1)
+    pyautogui.click(x=417, y=387) 
+    from features import speak
+    speak('sir , searching for updates') 
+    sleep(2) 
+    pyautogui.click(x=813, y=278) 
+
+def commit() :
+    pyautogui.click(x=42, y=285)
+    sleep(1)
+    pyautogui.click(x=186, y=148)  
+    speak("sir please write the message for commmit")
+    message = input()  
+    pyautogui.typewrite(message) 
+    speak("commiting the changes to the master repository") 
+    pyautogui.click(x=227, y=85) 
+    speak("publishing changes to repository")
+    pyautogui.click(x=165, y=1011)
+    sleep(1)
+    pyautogui.click(x=42, y=285) 
+    speak("sir you can proceed") 
+
+commit() 
 

@@ -36,7 +36,7 @@ def take_command():
         return "poor connection"
     except:
         return None
-    return query.lower()
+    return query.lower() 
 
 
 def desire():
@@ -124,7 +124,7 @@ def desire():
             speak("sir , whom do you wanna call")    
             name = take_command()
             while name == None :
-                speak("sir, i did not recognize it please tell agian")
+                speak("sir, i did not recognize it please tell agian") 
                 name = take_command()
             speak(f"calling the {name}") 
             whatsappcall(name) 
@@ -134,7 +134,7 @@ def desire():
             speak("sir ,  whom do you wanna make a video call")     
             name = take_command()
             while name ==  None :
-                speak("sir, i did not recognize it , please tell again")
+                speak("sir, i did not recognize it , please tell again") 
                 name = take_command()
             speak(f"making the videocall to {name}")    
             whatsappvideocall(name) 
@@ -195,9 +195,10 @@ def desire():
             os.system("TASKKILL /f /im WhatsApp.exe")    
 
         elif "open youtube" in query :
+           speak("opening youtube")
            webbrowser.open("https://www.youtube.com/")
 
-        elif "new tab" in query or "history" in query or "downloads" in query or "close tab" in query or "new window" in query or "bookmark" in query or "switch tab" in query or "incognito" in query : 
+        elif "new tab" in query or "history" in query or "downloads" in query or "close tab" in query or "new window" in query or "bookmark" in query or "switch to tab" in query or "incognito" in query : 
             from automation import chromeautomation
             chromeautomation(query)   
 
@@ -216,8 +217,20 @@ def desire():
         elif "open" in query :
             from automation import systemapps
             systemapps(query)  
-# while True: ou doing 
 
+        elif  "youtube" in query or "skip" in query or "back" in query or "next" in query or "previous" in query or "video" in query or "mute" in query or "full screen" in query or "play" in query or "resume" in query or "stop" in query :
+            from automation import youtubeautomate
+            youtubeautomate(query)  
+       
+        elif "quick scan" in query or "scan" in query :
+           from automation import quickscan
+           quickscan() 
+       
+        elif "windows update" in query or "updates" in query :
+           from automation import windowsupdate
+           windowsupdate()  
+#      
+# while True: 
 #     query = take_command() 
 #     if "poor connection" == query:
 #         speak(
@@ -234,11 +247,11 @@ def desire():
 #     elif None == query:
 #         pass
 #     elif "hello jarvis" in query:
-#         from features import wish
+#         from features import wish 
 #         wish()
 #         # query = take_command()
-#         desire()
+#         desire() 
 
 
-wish()
+wish() 
 desire() 
