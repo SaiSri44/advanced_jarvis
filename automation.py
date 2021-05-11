@@ -202,11 +202,11 @@ def windowsupdate() :
     pyautogui.click(x=813, y=278) 
 
 def commit() :
-    pyautogui.click(x=42, y=285)
-    sleep(1)   
     speak("sir please write the message for commmit")
     message = input()   
     speak("commiting the changes to the master repository") 
+    pyautogui.click(x=42, y=285)
+    sleep(1)   
     pyautogui.click(x=186, y=148) 
     pyautogui.typewrite(message,interval=0.0)   
     pyautogui.click(x=227, y=85) 
@@ -220,6 +220,5 @@ def commit() :
 def opennewfile() :
     speak("opening the new file") 
     press_and_release("ctrl + n") 
-
 
 
